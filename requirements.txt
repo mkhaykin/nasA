@@ -1,3 +1,5 @@
+apscheduler
+cryptography
 gunicorn
 flask
 flask-login

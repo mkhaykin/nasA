@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Admin Panel</h1>
+<p><a href="/generate">Generate Tokens</a> | <a href="/logout">Logout</a></p>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Token</th>
+        <th>Used</th>
+        <th>Used At</th>
+        <th>File</th>
+    </tr>
+    {% for t in tickets %}
+    <tr>
+        <td>{{ t.id }}</td>
+        <td>{{ t.ticket_hash[:8] }}</td>
+        <td>{{ 'Yes' if t.used else 'No' }}</td>
+        <td>{{ t.used_at or '-' }}</td>
+        <td>{{ t.file_uploaded or '-' }}</td>
+        <td>{{ t.created_at }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

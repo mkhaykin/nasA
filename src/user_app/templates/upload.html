@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Загрузка файла</h2>
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+        {{ form.file.label }}
+        {{ form.file(class="form-control") }}
+        {% if form.file.errors %}
+        <div class="errors">
+            {% for error in form.file.errors %}
+            <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock content %}

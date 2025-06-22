@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" lang="en"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <!-- Project CSS -->
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+
+    {% block css %}
+    {% endblock %}
+
+    {% block head_scripts %}
+    {% endblock %}
+
+    {% if title %}
+    <title>Personal NAS - {{ title }}</title>
+    {% else %}
+    <title>Personal NAS</title>
+    {% endif %}
+</head>
+<body>
+<header>
+</header>
+
+<main role="main" class="container">
+    <div class="row">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+    <div class="row">
+        {% block content %}
+        {% endblock %}
+    </div>
+</main>
+
+{% block footer %}
+<footer>
+</footer>
+{% endblock %}
+
+{% block scripts %}
+<!-- Project JS -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}
+
+{% block body_scripts %}
+{% endblock %}
+</body>
+</html>

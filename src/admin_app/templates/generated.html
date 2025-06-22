@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Generated Tickets</h2>
+<ul>
+    {% for ticket in tickets %}
+    <li>{{ ticket }}</li>
+    {% endfor %}
+</ul>
+<p>Скопируйте</p>
+<p><a href="/">Back</a></p>
+{% endblock content %}

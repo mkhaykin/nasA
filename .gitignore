@@ -1,0 +1,186 @@
+# Каталоги локального характера:
+.idea
+workspace.xml
+src/config.local.json
+_import/*.*
+_import/*
+_export/*.*
+_export/*
+_import/rv/*/*.*
+archive/*.*
+mail/*.*
+*.xls
+*.zip
+files.json
+*.log.1
+*.log.2
+*.log.3
+*.log.4
+*.log.5
+*.log.6
+*.log.7
+*.log.8
+src/lock.file
+*.lock.file
+visiology/query/monitoring.visiology_users_backup.sql
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+etl_env
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+/eahd_9/accreditation/
+/eahd_9/building/
+/eahd_9/card/
+/eahd_9/cert/
+/eahd_9/common/
+/eahd_9/depart/
+/eahd_9/eoDepart/
+/eahd_9/equipment/
+/eahd_9/ext/
+/eahd_9/Fdepart/
+/eahd_9/incomeExpenses/
+/eahd_9/licenses/
+/eahd_9/militaryService/
+/eahd_9/mobileDeparts/
+/eahd_9/nomination/
+/eahd_9/org/
+/eahd_9/organization/
+/eahd_9/person/
+/eahd_9/postgraduate/
+/eahd_9/prof/
+/eahd_9/qualification/
+/eahd_9/resolutions/
+/eahd_9/salaryPeriod/
+/eahd_9/salaryPeriodRecord/
+/eahd_9/servicesInfo/
+/eahd_9/sites/
+/eahd_9/staff/
+/eahd_9/territorialDepart/
+/eahd_9/tpgg/

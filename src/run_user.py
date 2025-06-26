@@ -4,7 +4,7 @@ app = create_app()
 
 
 def run_user() -> None:
-    app.run(host="127.0.0.1", port=46032, debug=True)
+    app.run(host="0.0.0.0", port=46032, debug=False)  # noqa: S104
 
 
 if __name__ == "__main__":

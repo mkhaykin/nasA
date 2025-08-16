@@ -3,25 +3,34 @@ stages:
   - deploy
 
 variables:
-  DOCKER_HOST: tcp://localhost:2375  # Если Docker на том же хосте
+  DOCKER_HOST: tcp://docker:2375  # Для Docker-in-Docker
   IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
-  GIT_STRATEGY: clone
-  GIT_CLONE_URL: "git@gitlab.khaykin.app:kmi/nasa.git"  # Используем SSH-URL
 
-# Собираем Docker-образ и пушим в GitLab Registry
+# Настройка SSH перед выполнением jobs
+before_script:
+  - mkdir -p ~/.ssh
+  - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+  - chmod 600 ~/.ssh/id_ed25519
+  - ssh-keyscan gitlab.khaykin.app >> ~/.ssh/known_hosts
+  - git config --global url."git@gitlab.khaykin.app:".insteadOf "https://gitlab.khaykin.app/"
+
 build:
   stage: build
+  services:
+    - docker:dind  # Docker-in-Docker service
+  image: docker:24.0
   script:
     - docker build -t $IMAGE_TAG .
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker push $IMAGE_TAG
   only:
-    - main  # Триггерим только при пуше в main
+    - main
 
-# Деплоим на тот же хост, где стоит GitLab
 deploy:
   stage: deploy
+  image: docker:24.0
   script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker pull $IMAGE_TAG
     - docker stop flask-app || true
     - docker rm flask-app || true

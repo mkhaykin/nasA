@@ -4,7 +4,7 @@ app = create_app()
 
 
 def run_admin() -> None:
-    app.run(host="0.0.0.0", port=3000, debug=False)  # noqa: S104
+    app.run(host="0.0.0.0", port=8081, debug=False)  # noqa: S104
 
 
 if __name__ == "__main__":

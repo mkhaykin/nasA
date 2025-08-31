@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 
 class Config:
@@ -7,7 +8,7 @@ class Config:
     ADMIN_PORT = 3000
     USER_PORT = 46032
 
-    SHARED_FOLDER = os.environ.get("SHARED_FOLDER", "./shared")
+    SHARED_FOLDER = Path(os.environ.get("SHARED_FOLDER", "./uploads"))
     MAX_CONTENT_LENGTH = int(
         os.environ.get(
             "MAX_CONTENT_LENGTH",
@@ -15,8 +16,9 @@ class Config:
         ),
     )  # 100MB default
 
-    DB_PATH = os.environ.get("DB_PATH", "nas.db")
-    SQLALCHEMY_DATABASE_URI = "sqlite:///nas.db"
+    DB_FOLDER = Path(os.environ.get("DB_FOLDER", "./db"))
+    DB_PATH = Path(DB_FOLDER) / "nas.db"
+    SQLALCHEMY_DATABASE_URI = f"sqlite:///{DB_PATH}"
     DATABASE_TRACK_MODIFICATIONS = False
 
     TICKET_LENGTH = 7
